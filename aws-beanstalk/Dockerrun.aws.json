@@ -22,7 +22,8 @@
         }
       ],
       "links": [
-        "rest"
+        "rest",
+        "ds-record-submission"
       ]
     },
     {
@@ -34,6 +35,18 @@
         {
           "hostPort": 3000,
           "containerPort": 3000
+        }
+      ]
+    },
+    {
+      "name": "ds-record-submission",
+      "image": "datastrata/ds-record-submission",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 3002,
+          "containerPort": 3002
         }
       ]
     }
