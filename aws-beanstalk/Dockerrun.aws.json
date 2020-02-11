@@ -23,7 +23,8 @@
       ],
       "links": [
         "rest",
-        "ds-record-submission"
+        "ds-record-submission",
+        "ds-socket"
       ]
     },
     {
@@ -47,6 +48,18 @@
         {
           "hostPort": 3002,
           "containerPort": 3002
+        }
+      ]
+    },
+    {
+      "name": "ds-socket",
+      "image": "datastrata/ds-socket",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 3030,
+          "containerPort": 3030
         }
       ]
     }

@@ -2,9 +2,9 @@ version: '3'
 services:
 
   rest:
-    image: opinionatedstack/rest-node
+    image: datastrata/rest-ts-node
     container_name: rest
-    restart: unless-stopped
+    #restart: unless-stopped
     ports:
       - 3000:3000
     networks:
@@ -12,24 +12,47 @@ services:
     stdin_open: true
     tty: true
 
-  payments:
-    image: opinionatedstack/stripe-payments
-    container_name: payments
-    restart: unless-stopped
+  records:
+    image: datastrata/ds-record-submission
+    container_name: ds-record-submission
+    #restart: unless-stopped
     ports:
-      - 3001:3001
+      - 3002:3002
     networks:
       - opsnet
     stdin_open: true
     tty: true
 
+  socket:
+    image: datastrata/ds-socket
+    container_name: ds-socket
+    #restart: unless-stopped
+    ports:
+      - 3030:3030
+    networks:
+      - opsnet
+    stdin_open: true
+    tty: true
+
+#  payments:
+#    image: datastrata/stripe-payments
+#    container_name: payments
+#    #restart: unless-stopped
+#    ports:
+#      - 3001:3001
+#    networks:
+#      - opsnet
+#    stdin_open: true
+#    tty: true
+
   web:
-    image: opinionatedstack/web-angular
+    image: datastrata/web-mobile
     container_name: web
-    restart: unless-stopped
+#    restart: unless-stopped
     depends_on:
       - rest
-      - payments
+      - records
+#      - payments
     ports:
       - 80:80
       - 443:443
