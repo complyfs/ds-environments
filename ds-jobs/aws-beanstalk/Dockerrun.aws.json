@@ -1,0 +1,16 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "authentication": {
+    "bucket": "ds-docker-credentials",
+    "key": ".dockercfg"
+  },
+
+  "containerDefinitions": [
+    {
+      "name": "ds-jobs",
+      "image": "datastrata/ds-jobs",
+      "essential": true,
+      "memory": 512
+    }
+  ]
+}
