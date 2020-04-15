@@ -1,0 +1,16 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "authentication": {
+    "bucket": "ds-docker-credentials",
+    "key": ".dockercfg"
+  },
+
+  "containerDefinitions": [
+    {
+      "name": "twitter-bot",
+      "image": "datastrata/twitter-bot",
+      "essential": true,
+      "memory": 128
+    }
+  ]
+}
