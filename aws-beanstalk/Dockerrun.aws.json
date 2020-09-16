@@ -55,13 +55,19 @@
       "name": "ds-socket",
       "image": "datastrata/ds-socket",
       "essential": true,
-      "memory": 128,
+      "memory": 64,
       "portMappings": [
         {
           "hostPort": 3030,
           "containerPort": 3030
         }
       ]
+    },
+    {
+      "name": "ds-jobs",
+      "image": "datastrata/ds-jobs",
+      "essential": true,
+      "memory": 512
     }
   ]
 }
