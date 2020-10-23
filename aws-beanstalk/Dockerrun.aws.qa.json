@@ -1,0 +1,73 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "authentication": {
+    "bucket": "ds-docker-credentials",
+    "key": ".dockercfg"
+  },
+
+  "containerDefinitions": [
+    {
+      "name": "web",
+      "image": "datastrata/web-mobile:latest-qa",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        },
+        {
+          "hostPort": 443,
+          "containerPort": 443
+        }
+      ],
+      "links": [
+        "rest",
+        "ds-record-submission",
+        "ds-socket"
+      ]
+    },
+    {
+      "name": "rest",
+      "image": "datastrata/rest-ts-node:latest-qa",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "containerPort": 3000
+        }
+      ]
+    },
+    {
+      "name": "ds-record-submission",
+      "image": "datastrata/ds-record-submission:latest-qa",
+      "essential": true,
+      "memory": 1024,
+      "portMappings": [
+        {
+          "hostPort": 3002,
+          "containerPort": 3002
+        }
+      ]
+    },
+    {
+      "name": "ds-socket",
+      "image": "datastrata/ds-socket:latest-qa",
+      "essential": true,
+      "memory": 64,
+      "portMappings": [
+        {
+          "hostPort": 3030,
+          "containerPort": 3030
+        }
+      ]
+    },
+    {
+      "name": "ds-jobs",
+      "image": "datastrata/ds-jobs:latest-qa",
+      "essential": true,
+      "memory": 512
+    }
+  ]
+}

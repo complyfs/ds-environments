@@ -43,7 +43,7 @@
       "name": "ds-record-submission",
       "image": "datastrata/ds-record-submission",
       "essential": true,
-      "memory": 128,
+      "memory": 1024,
       "portMappings": [
         {
           "hostPort": 3002,
