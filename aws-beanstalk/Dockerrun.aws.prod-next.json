@@ -24,7 +24,8 @@
       "links": [
         "rest",
         "ds-record-submission",
-        "ds-socket"
+        "ds-socket",
+        "ds-stripe-payments"
       ]
     },
     {
@@ -67,7 +68,7 @@
       "name": "ds-jobs",
       "image": "datastrata/ds-jobs:next",
       "essential": true,
-      "memory": 768
+      "memory": 512
     },
     {
       "name": "ds-stripe-payments",
